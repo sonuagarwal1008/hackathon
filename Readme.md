@@ -45,6 +45,35 @@ After setting up alexa developer account use following option:
 2. Paste lamnda code in lambda editor Hackathon-Git-Data/AlexaFile/lambda.py
 
 
+########### Dynamo DB #######
+database:
+2 tables 
+- registration
+{
+  "appid": "irj-2",
+  "city": "jaipur",
+  "country": "india",
+  "demo_desc": "only known",
+  "id": 2,
+  "latitude": "26.879214",
+  "longitude": "75.804782",
+  "name": "user2",
+  "password": "pass2",
+  "state": "rajasthan",
+  "user_mobile": "+918888578393",
+  "username": "user2",
+  "zipcode": 303329
+}
+
+
+- report
+
+{
+  "appid": "irj-99",
+  "latitude": "26.887594",
+  "longitude": "75.813964",
+  "time": "20180312-2023"
+}
 
 
 
