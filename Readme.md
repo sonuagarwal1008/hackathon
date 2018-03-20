@@ -77,8 +77,8 @@
   "longitude": "75.813964",
   "time": "20180312-2023"
 }
-
-
+##########
+place html content in /var/www/html
 
 
 
