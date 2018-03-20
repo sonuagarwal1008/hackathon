@@ -31,24 +31,27 @@
 7. pip install requests
 
 ###configure  aws credentials
-execute command 'aws configure'
-AWS Access Key ID [****************L4WQ]:  AWS_ACCESS_ID
-AWS Secret Access Key [****************YXwd]: AWS_SECRET_KEY
-Default region name [us-east-1]: REGION_NAME
-Default output format [json]: JSON
+
+- execute command 'aws configure'
+- AWS Access Key ID [****************L4WQ]:  AWS_ACCESS_ID
+- AWS Secret Access Key [****************YXwd]: AWS_SECRET_KEY
+- Default region name [us-east-1]: REGION_NAME
+- Default output format [json]: JSON
 
 
 
 #####Alexa configuration and setup
-After setting up alexa developer account use following option:
+
+- After setting up alexa developer account use following option:
 1. create alexa skill and copy-paste json data(it contains user utterances and intents) which is located at Hackathon-Git-Data/AlexaFile/speech.json
 2. Paste lamnda code in lambda editor Hackathon-Git-Data/AlexaFile/lambda.py
 
 
 ########### Dynamo DB #######
-database:
-2 tables 
+
+- database: 2 tables 
 - registration
+
 {
   "appid": "irj-2",
   "city": "jaipur",
