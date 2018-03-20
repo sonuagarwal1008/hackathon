@@ -1,0 +1,46 @@
+{
+    "languageModel": {
+        "invocationName": "safety application",
+        "intents": [
+            {
+                "name": "AMAZON.CancelIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.HelpIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.StopIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "askdetails",
+                "slots": [],
+                "samples": [
+                    "till date how many issues has been  resolved",
+                    "how many incident have we resolved till date",
+                    "how many issue have we resolved till date"
+                ]
+            },
+            {
+                "name": "unresolvedissue",
+                "slots": [],
+                "samples": [
+                    "failed incident"
+                ]
+            },
+            {
+                "name": "currentissue",
+                "slots": [],
+                "samples": [
+                    "tell me about todays incident"
+                ]
+            }
+        ],
+        "types": []
+    }
+}
