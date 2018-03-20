@@ -37,10 +37,7 @@ AWS Secret Access Key [****************YXwd]: AWS_SECRET_KEY
 Default region name [us-east-1]: REGION_NAME
 Default output format [json]: JSON
 
-######lambda functions
-Hackathon-Git-Data/AlexaFile/lambda.py
-Hackathon-Git-Data/AlexaFile/
-##### flask configuration and setup
+
 
 #####Alexa configuration and setup
 After setting up alexa developer account use following option:
