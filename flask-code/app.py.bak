@@ -1,0 +1,97 @@
+import boto3
+import pytz
+from datetime import datetime
+from flask import Flask, render_template, redirect, url_for, request
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+	name = request.form['name']
+	username = request.form['username']
+	password = request.form['password']
+	country = request.form['country'] 
+	state = request.form['state']
+	city  = request.form['city']
+	zipcode = int(request.form['zip'])
+	user_mobile = request.form['mobile']
+	dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+
+	table = dynamodb.Table('S_registration_data')
+	
+	dynamodb_client = boto3.client('dynamodb', region_name='us-east-1')
+	response = dynamodb_client.scan(
+	    TableName='S_registration_data',
+
+	    AttributesToGet=[
+		'id',
+	    ],
+		Select='SPECIFIC_ATTRIBUTES'
+	)
+	inp =[]
+	for i in range(0,response['Count'],1):
+		inp.append(int(response['Items'][i]['id']['N']))
+
+	print max(inp)
+
+
+	response = table.put_item(
+	   Item={
+			'id': int(max(inp))+1,
+			'appid': "irj-"+str(int(max(inp))+1),
+			'name': name,
+			'password': password,
+			'country': country,
+			'state': state,
+			'city': city,
+			'latitude': "27.0",
+			'longitude': "80.0",
+			'user_mobile': "+91"+user_mobile,
+			'username': username,
+			'zipcode': zipcode,
+			'demo_desc': "demo_entry"
+			
+			
+		}
+	)
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'you have successfully registered for this app.'
+        else:
+            return redirect(url_for('/'))
+    return render_template('login.html', error=error)
+@app.route("/help", methods=['GET', 'POST'])
+def help():
+    error =None
+    latitude=26.887594
+    longitude=75.813964
+    appid="irj-99"
+    tz = pytz.timezone('Asia/Kolkata')
+    currenttime = str(datetime.now(tz))
+    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+    table = dynamodb.Table('S_report')
+    response = table.put_item(
+           Item={
+                        
+                        'appid': "irj-3",
+                        'latitude': "26.887594",
+			'longitude': "75.813964",
+			'time': currenttime
+                        
+                        
+
+
+                }
+        )
+#    if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+ #           error = 'Location details sent successfully.'
+  #  else:
+   #         return redirect(url_for('/'))
+     
+    return render_template('help.html', error=error)
+if __name__ == "__main__":
+    app.run(host='10.128.0.2')
